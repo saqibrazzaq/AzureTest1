@@ -21,7 +21,13 @@ namespace WebApplication1.Controllers
             _configuration = configuration;
         }
 
-        [HttpGet(Name = "GetWeatherForecast")]
+        [HttpGet]
+        public IActionResult GetDefault()
+        {
+            return Ok("This is the default action");
+        }
+
+        [HttpGet("GetWeatherForecast")]
         public IEnumerable<WeatherForecast> Get()
         {
             return Enumerable.Range(1, 5).Select(index => new WeatherForecast
